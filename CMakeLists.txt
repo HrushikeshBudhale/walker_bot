@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
 )
 
+catkin_package()
 
 include_directories(
   include
