@@ -1,7 +1,10 @@
 <launch>
     <node pkg="walker_bot" name="walker_bot" type="walker_bot_node" output="screen"/>
 
-    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"/>
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch">
+        <arg name="x_pos" default="-2.0"/>
+        <arg name="y_pos" default="0.0"/>
+    </include>
     
     <!-- Record data on all topics except camera and laserscan -->
     <arg name="record_bag" default="false"/>
