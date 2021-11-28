@@ -1,7 +1,7 @@
 /**
  * @file walker_bot.hpp
  * @author Hrushikesh Budhale (hbudhale@umd.edu)
- * @brief File containing WalkerBot class
+ * @brief Header file for WalkerBot class
  * @version 0.1
  * @date 2021-11-27
  * 
@@ -37,6 +37,10 @@ SOFTWARE.
 #include <sstream>
 #include "ros/ros.h"
 
+/**
+ * @brief WalkerBot class for turtlebot3 (waffle) 
+ * 
+ */
 class WalkerBot {
  public:
     explicit WalkerBot(ros::NodeHandle*);

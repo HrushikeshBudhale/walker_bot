@@ -31,12 +31,19 @@ SOFTWARE.
 
 #include <walker_bot/walker_bot.hpp>
 
+/**
+ * @brief Main function running walker_bot_node
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char *argv[]) {
     // Initialize the node
     ros::init(argc, argv, "walker_bot_node");
     ROS_INFO_STREAM("[Walker_bot] Started walker_node");
     ros::NodeHandle nh;
-    WalkerBot wb(&nh);
+    WalkerBot wb(&nh);  // Create WalkerBot object
     ros::spin();
     return 0;
 }

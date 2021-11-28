@@ -31,6 +31,11 @@ SOFTWARE.
 
 #include <walker_bot/walker_bot.hpp>
 
+/**
+ * @brief Explicit constructor for WalkerBot
+ * 
+ * @param nh node handle of type ros::NodeHandle
+ */
 WalkerBot::WalkerBot(ros::NodeHandle* nh) {
     // create vector for storing 3 distances
     distances.push_back(0);
@@ -44,6 +49,11 @@ WalkerBot::WalkerBot(ros::NodeHandle* nh) {
     sub_scan = nh->subscribe("/scan", 10, &WalkerBot::scan_callback, this);
 }
 
+/**
+ * @brief Callback function for /scan topic to receive laser scan data
+ * 
+ * @param msg of type sensor_msgs::LaserScanConstPtr&
+ */
 void WalkerBot::scan_callback(const sensor_msgs::LaserScanConstPtr& msg) {
     distances[0] = msg->ranges[30];
     distances[1] = msg->ranges[0];
@@ -54,12 +64,23 @@ void WalkerBot::scan_callback(const sensor_msgs::LaserScanConstPtr& msg) {
     move_around();
 }
 
+/**
+ * @brief Command to publish linear velocity for robot
+ * 
+ * @param speed in m/s with default value 0.26
+ */
 void WalkerBot::move_forward(double speed = 0.26) {
     geometry_msgs::Twist new_msg;
     new_msg.linear.x = speed;
     pub_vels.publish(new_msg);
 }
 
+/**
+ * @brief Command to make the robot turn
+ *          +1 turns the bot anticlockwise
+ *          -1 turns the bot clockwise
+ * @param dir either +1 or -1
+ */
 void WalkerBot::turn(double dir) {
     geometry_msgs::Twist new_msg;
     new_msg.linear.x = -0.2;
@@ -67,6 +88,10 @@ void WalkerBot::turn(double dir) {
     pub_vels.publish(new_msg);
 }
 
+/**
+ * @brief Command to stop the robot by publishing 0 as linear and angular
+ *          velocity
+ */
 void WalkerBot::stop(void) {
     geometry_msgs::Twist new_msg;
     new_msg.linear.x = 0;
@@ -74,6 +99,9 @@ void WalkerBot::stop(void) {
     pub_vels.publish(new_msg);
 }
 
+/**
+ * @brief Simple walker algorithm to move the robot avoiding obstacles
+ */
 void WalkerBot::move_around(void) {
     // if front is near obstacle
     if (distances[0] < near || distances[1] < near || distances[2] < near) {
