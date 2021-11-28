@@ -47,7 +47,7 @@ class WalkerBot {
 
  private:
     void scan_callback(const sensor_msgs::LaserScanConstPtr& msg);
-    double near = 0.5;
+    double near = 0.3;
     std::vector<double> distances;
     ros::Publisher pub_vels;
     ros::Subscriber sub_scan;
