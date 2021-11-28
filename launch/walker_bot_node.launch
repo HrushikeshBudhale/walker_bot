@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="walker_bot" name="walker_bot" type="walker_bot_node" output="screen"/>
+</launch>
