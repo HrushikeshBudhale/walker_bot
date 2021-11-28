@@ -1,6 +1,12 @@
 <launch>
     <node pkg="walker_bot" name="walker_bot" type="walker_bot_node" output="screen"/>
-    
+
     <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"/>
     
+    <!-- Record data on all topics except camera and laserscan -->
+    <arg name="record_bag" default="false"/>
+    <group if="$(arg record_bag)">
+        <node pkg="rosbag" type="record" name="rosbag_recorder"
+              args="record -O $(find walker_bot)/results/my_bag -a -x &quot;\/camera(.*)|\/scan&quot; "/>
+    </group>
 </launch>
