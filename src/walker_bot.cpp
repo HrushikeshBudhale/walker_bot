@@ -63,7 +63,7 @@ void WalkerBot::move_forward(double speed = 0.26) {
 void WalkerBot::turn(double dir) {
     geometry_msgs::Twist new_msg;
     new_msg.linear.x = -0.2;
-    new_msg.angular.z = dir*1.82;
+    new_msg.angular.z = dir*1.0;
     pub_vels.publish(new_msg);
 }
 
@@ -76,7 +76,7 @@ void WalkerBot::stop(void) {
 
 void WalkerBot::move_around(void) {
     // if front is near obstacle
-    if (distances[1] < near) {
+    if (distances[0] < near || distances[1] < near || distances[2] < near) {
         ROS_INFO_STREAM("[Walker_bot] Taking turn");
         // compare left and right
         if (distances[0] > distances[2]) {
