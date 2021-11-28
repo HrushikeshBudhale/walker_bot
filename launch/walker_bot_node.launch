@@ -6,10 +6,10 @@
         <arg name="y_pos" default="0.0"/>
     </include>
     
-    <!-- Record data on all topics except camera and laserscan -->
+    <!-- Record data on all topics except camera -->
     <arg name="record_bag" default="false"/>
     <group if="$(arg record_bag)">
         <node pkg="rosbag" type="record" name="rosbag_recorder"
-              args="record -O $(find walker_bot)/results/my_bag -a -x &quot;\/camera(.*)|\/scan&quot; "/>
+              args="record -O $(find walker_bot)/results/my_bag -a -x &quot;\/camera(.*)&quot; "/>
     </group>
 </launch>
