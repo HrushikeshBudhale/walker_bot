@@ -52,5 +52,17 @@ roslaunch walker_bot walker_bot_node.launch
 ```
 roslaunch walker_bot walker_bot_node.launch record_bag:=true
 ```
- The generated rosbag contains all the topics except topics related to camera and scan. This rosbag will be saved in the results directory of this package.
- Prerecorded rosbag can be found [here](https://drive.google.com/file/d/1QrrBjUbBJmiWtDHl4RwzKZ0AYmLVcjFt/view?usp=sharing).
+ The generated rosbag contains all the topics except topics related to camera. This rosbag will be saved in the results directory of this package.
+ 
+ Prerecorded rosbag can be found [here](https://drive.google.com/file/d/1CPXA_mrEbxkhzBfnl-XUwhobsq722amg/view?usp=sharing).
+
+### Inspecting generated bag files
+ Use following command toA inspect the generated bag file,
+```
+roscd walker_bot/results/
+rosbag info my_bag.bag
+```
+ To play the rosbag run following command.
+```
+rosbag play my_bag.bag
+```
