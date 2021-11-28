@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>walker_bot</name>
+  <version>0.0.0</version>
+  <description>The walker_bot package</description>
+
+  <maintainer email="hbudhale@umd.edu">hrushikesh</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  
+</package>
