@@ -6,7 +6,7 @@
 ### Overview
  This repository walker_bot ROS package with one talker_bot_node. This node provides the functionality for the turtlebot3 to move around and avoid obstacles using the readings from the lidar scan data.
 
-The launch file provides additional functionality to record the rosbag while launching the node.
+ The launch file provides additional functionality to record the rosbag while launching the node.
 
 ### Dependencies
 - ROS version:
@@ -16,7 +16,7 @@ The launch file provides additional functionality to record the rosbag while lau
     - roscpp
     - geometry_msgs
     - sensor_msgs
-    - turtlebot3_gazebo
+    - turtl ebot3_gazebo
 
 
 ### Assumptions
@@ -41,10 +41,10 @@ source devel/setup.bash
 
 ### Launch walker_bot
  In your catkin workspace, enter following command to launch walker_bot_node. 
- ```
- source devel/setup.bash
- roslaunch walker_bot walker_bot_node.launch
- ```
+```
+source devel/setup.bash
+roslaunch walker_bot walker_bot_node.launch
+```
  On successful launch, a gazebo environment will open with turtlebot3 moving inside the environment while avoiding the collision with obstacles ahead.
 
 ### Launch walker_bot with rosbag record
@@ -52,4 +52,5 @@ source devel/setup.bash
 ```
 roslaunch walker_bot walker_bot_node.launch record_bag:=true
 ```
-The generated rosbag contains all the topics except topics related to camera and scan. This rosbag will be saved in the results directory of this package.
+ The generated rosbag contains all the topics except topics related to camera and scan. This rosbag will be saved in the results directory of this package.
+ Prerecorded rosbag can be found (here)[https://drive.google.com/file/d/1QrrBjUbBJmiWtDHl4RwzKZ0AYmLVcjFt/view?usp=sharing].
